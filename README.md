@@ -32,13 +32,81 @@ Or install it yourself as:
 After you install Two Faced and add it to your Gemfile, you need to run the generator:
 
     $ rails generate two_faced:install
+    $ rake db:migrate
 
 ## Configuring Models
 
+Add the following line into any model you want to be overrideable:
 
+    acts_as_overrideable
+
+## Adding overrides with Active Admin
+
+Add the nested attributes to the form for the resource, like so:
+
+   form do |f|
+     f.inputs
+     f.has_many :overrides do |o|
+       o.input :context_name
+       o.input :field_name, :as => :select, :collection => f.object.attribute_names
+       o.input :field_value
+     end
+     f.buttons
+   end
+
+## Adding overrides using the nested_form gem
+
+Add the nested fields for overrides.
+
+    <%= nested_form_for(@yourrecord) do |f| %>
+
+        ## Your existing Fields
+
+        <%= f.fields_for :overrides do |o|  %>
+            <div class="field">
+              <%= f.label :context_name %><br />
+              <%=  o.text_field :context_name %><br/>
+            </div>
+            <div class="field">
+              <%= f.label :field_name %><br />
+              <%= o.select :field_name, f.object.attribute_names.map{ |value| [value, value]}  %>
+              </div>
+            <div class="field">
+              <%= f.label :field_value %><br />
+                <%= o.text_field :field_value %>
+            </div>
+        <% end  %>
+
+        <%= f.link_to_add 'Add Override', :overrides %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+## Adding overrides programatically
+
+    @yourrecord.overrides.create(:field_name => "name", :field_value => "New Name", :context_name => "mobile")
 
 ## Usage
 
+You can now load up a version of your model with all overrides merged in. By default, two_faced will not overwrite the property, but will create a new method that will return the overridden property or the original property (if no override exists).
+
+    @example = ModelName.for_context("facebook").first
+    @example.name # Will be the original name
+    @example.overridden_name # Will be the overridden name
+
+If the overwrite parameter is passed, both the original property and the overridden property will be set to the new value
+
+    @example = ModelName.for_context("facebook", :overwrite => true).first
+    @example.name # Will be the overridden name
+    @example.overridden_name # Will be the overridden name
+
+You can also pass a custom prefix which will be used in place of "overridden". An underscore will be appended to this, and then the property name
+
+    @example = ModelName.for_context("facebook", :overwrite => true, :attribute_prefix = "custom").first
+    @example.name # Will be the overridden name
+    @example.custom_name # Will be the overridden name
 
 
 ## Contributing
