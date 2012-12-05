@@ -1,0 +1,5 @@
+require "two_faced/version"
+require "two_faced/hook"
+require "two_faced/model_extensions"
+require "two_faced/railtie"
+require "two_faced/engine"
