@@ -99,6 +99,11 @@ If the overwrite parameter is passed, both the original property and the overrid
     @example.name # Will be the overridden name
     @example.overridden_name # Will be the overridden name
 
+If overwrite is set to true, it will also mark any records as read-only (to prevent saving this context-specific value back to the database). So this will give you an error:
+
+    @example = ModelName.for_context("facebook", :overwrite => true).first
+    @example.save #  ActiveRecord::ReadOnlyRecord exception
+
 You can also pass a custom prefix which will be used in place of "overridden". An underscore will be appended to this, and then the property name
 
     @example = ModelName.for_context("facebook", :overwrite => true, :attribute_prefix = "custom").first
