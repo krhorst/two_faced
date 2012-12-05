@@ -44,15 +44,15 @@ Add the following line into any model you want to be overrideable:
 
 Add the nested attributes to the form for the resource, like so:
 
-   form do |f|
-     f.inputs
-     f.has_many :overrides do |o|
-       o.input :context_name
-       o.input :field_name, :as => :select, :collection => f.object.attribute_names
-       o.input :field_value
-     end
-     f.buttons
-   end
+       form do |f|
+         f.inputs
+         f.has_many :overrides do |o|
+           o.input :context_name
+           o.input :field_name, :as => :select, :collection => f.object.attribute_names
+           o.input :field_value
+         end
+         f.buttons
+       end
 
 ## Adding overrides using the nested_form gem
 
