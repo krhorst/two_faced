@@ -19,15 +19,12 @@ At this point you have a few options:
 
 Add this line to your application's Gemfile:
 
-    gem 'two_faced'
+    gem 'two_faced', :git => "git://github.com/krhorst/two_faced.git"
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install two_faced
 
 After you install Two Faced and add it to your Gemfile, you need to run the generator:
 
