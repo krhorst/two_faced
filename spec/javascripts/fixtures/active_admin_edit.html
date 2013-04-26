@@ -1,0 +1,130 @@
+<div class="edit admin_recipes active_admin logged_in admin_namespace">
+    <div id="wrapper">
+        <div class="header" id="header">
+            <h1 class="site_title" id="site_title">Recipe With Override</h1>
+            <ul class="header-item" id="tabs">
+                <li id="dashboard"><a href="/admin/dashboard">Dashboard</a></li>
+                <li id="admin_users"><a href="/admin/admin_users">Admin Users</a></li>
+                <li id="overrides"><a href="/admin/overrides">Overrides</a></li>
+                <li id="planes"><a href="/admin/planes">Planes</a></li>
+                <li class="current" id="recipes"><a href="/admin/recipes">Recipes</a></li>
+            </ul>
+            <p class="header-item" id="utility_nav">
+                <span class="current_user">admin@example.com</span>
+                <a href="/admin/logout" data-method="get">Logout</a></p>
+        </div>
+        <div class="title_bar" id="title_bar">
+            <div id="titlebar_left">
+          <span class="breadcrumb">
+<a href="/admin">Admin</a>            <span class="breadcrumb_sep">/</span>
+<a href="/admin/recipes">Recipes</a>            <span class="breadcrumb_sep">/</span>
+<a href="/admin/recipes/1">Original Name</a>            <span class="breadcrumb_sep">/</span>
+          </span>
+
+                <h2 id="page_title">Edit Recipe</h2>
+            </div>
+            <div id="titlebar_right">
+                <div class="action_items">
+                    <span class="action_item"><a href="/admin/recipes/new">New Recipe</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="active_admin_content" class="without_sidebar">
+            <div id="main_content_wrapper">
+                <div id="main_content">
+                    <form accept-charset="UTF-8" action="/admin/recipes/1" class="formtastic recipe" id="edit_recipe"
+                          method="post" novalidate="novalidate">
+                        <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden"
+                                                                              value="&#x2713;"/><input name="_method"
+                                                                                                       type="hidden"
+                                                                                                       value="put"/><input
+                                name="authenticity_token" type="hidden"
+                                value="qK5/3ADM9lPKTAU3tekZ8euGt097uFkbzVu8b9E3pC4="/></div>
+                        <fieldset class="inputs">
+                            <ol>
+                                <li class="overridetextarea input optional" id="recipe_name_input"><label class=" label"
+                                                                                                          for="recipe_name">Name</label>
+                                    <ul class='editor-tabs'>
+                                        <li class='active' data-editor-id='-1'>Default</li>
+                                        <li data-editor-id='1' class=''>facebook</li>
+                                        <li data-editor-id='2' class=''>mobile</li>
+                                        <a href="#" class="button"
+                                           data-template="&lt;li data-editor-id=\'NEW_RECORD\' class=\'new\'&gt;&lt;fieldset class=\&quot;inputs\&quot;&gt;&lt;ol&gt;&lt;li class=\&quot;string input required stringish\&quot; id=\&quot;recipe_overrides_attributes_2_context_name_input\&quot;&gt;&lt;input class=\&quot;header-input\&quot; id=\&quot;recipe_overrides_attributes_2_context_name\&quot; maxlength=\&quot;255\&quot; name=\&quot;recipe[overrides_attributes][2][context_name]\&quot; type=\&quot;text\&quot; /&gt;\n\n&lt;\/li&gt;&lt;li class=\&quot;text input optional\&quot; id=\&quot;recipe_overrides_attributes_2_field_value_input\&quot;&gt;&lt;textarea id=\&quot;recipe_overrides_attributes_2_field_value\&quot; name=\&quot;recipe[overrides_attributes][2][field_value]\&quot; rows=\&quot;20\&quot;&gt;\n&lt;\/textarea&gt;\n\n&lt;\/li&gt;&lt;\/ol&gt;&lt;\/fieldset&gt;&lt;\/li&gt;">+</a>
+                                    </ul>
+                                    <ul class='editors'>
+                                        <li class='active' data-editor-id='-1'><textarea id="recipe_name"
+                                                                                         name="recipe[name]" rows="20">
+                                            Original Name</textarea></li>
+                                        <li data-editor-id='1'>
+                                            <fieldset class="inputs">
+                                                <ol>
+                                                    <li class="string input required stringish"
+                                                        id="recipe_overrides_attributes_0_context_name_input"><input
+                                                            class="header-input"
+                                                            id="recipe_overrides_attributes_0_context_name"
+                                                            maxlength="255"
+                                                            name="recipe[overrides_attributes][0][context_name]"
+                                                            type="text" value="facebook"/>
+
+                                                    </li>
+                                                    <li class="text input optional"
+                                                        id="recipe_overrides_attributes_0_field_value_input"><textarea
+                                                            id="recipe_overrides_attributes_0_field_value"
+                                                            name="recipe[overrides_attributes][0][field_value]"
+                                                            rows="20">
+                                                        ONE</textarea>
+
+                                                    </li>
+                                                </ol>
+                                            </fieldset>
+                                            <input id="recipe_overrides_attributes_0_id"
+                                                   name="recipe[overrides_attributes][0][id]" type="hidden" value="1"/>
+                                        </li>
+                                        <li data-editor-id='2'>
+                                            <fieldset class="inputs">
+                                                <ol>
+                                                    <li class="string input required stringish"
+                                                        id="recipe_overrides_attributes_1_context_name_input"><input
+                                                            class="header-input"
+                                                            id="recipe_overrides_attributes_1_context_name"
+                                                            maxlength="255"
+                                                            name="recipe[overrides_attributes][1][context_name]"
+                                                            type="text" value="mobile"/>
+
+                                                    </li>
+                                                    <li class="text input optional"
+                                                        id="recipe_overrides_attributes_1_field_value_input"><textarea
+                                                            id="recipe_overrides_attributes_1_field_value"
+                                                            name="recipe[overrides_attributes][1][field_value]"
+                                                            rows="20">
+                                                        TWO</textarea>
+
+                                                    </li>
+                                                </ol>
+                                            </fieldset>
+                                            <input id="recipe_overrides_attributes_1_id"
+                                                   name="recipe[overrides_attributes][1][id]" type="hidden" value="2"/>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ol>
+                        </fieldset>
+                        <fieldset class="actions">
+                            <ol>
+                                <li class="action input_action " id="recipe_submit_action"><input name="commit"
+                                                                                                  type="submit"
+                                                                                                  value="Update Recipe"/>
+                                </li>
+                                <li class="cancel"><a href="/admin/recipes">Cancel</a></li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="footer">
+            <p>Powered by <a href="http://www.activeadmin.info">Active Admin</a> 0.5.0</p>
+        </div>
+    </div>
+</div>

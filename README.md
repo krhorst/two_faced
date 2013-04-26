@@ -51,6 +51,23 @@ Add the nested attributes to the form for the resource, like so:
          f.buttons
        end
 
+## Custom Active Admin Control for Overrides
+
+There are also custom active admin inputs which will allow for tabbed entry of overrides within active admin. To install the CSS and Javascript for the inputs, run the following command:
+
+    $ rails generate two_faced:active_admin_assets
+
+To use this new tabbed override control, just use the overridestring or overridetextarea controls, as follows:
+
+      form do |f|
+        f.inputs do
+          f.input :name, :as => :overridestring
+          f.input :description, :as => :overridetextarea
+        end
+        f.buttons
+      end
+
+
 ## Adding overrides using the nested_form gem
 
 Add the nested fields for overrides.
@@ -89,24 +106,24 @@ Add the nested fields for overrides.
 
 You can now load up a version of your model with all overrides merged in. By default, two_faced will not overwrite the property, but will create a new method that will return the overridden property or the original property (if no override exists).
 
-    @example = ModelName.for_context("facebook").first
+    @example = ModelName.for_context("facebook"){|model| model.first}
     @example.name # Will be the original name
     @example.overridden_name # Will be the overridden name
 
 If the overwrite parameter is passed, both the original property and the overridden property will be set to the new value
 
-    @example = ModelName.for_context("facebook", :overwrite => true).first
+    @example = ModelName.for_context("facebook", :overwrite => true){|model| model.first}
     @example.name # Will be the overridden name
     @example.overridden_name # Will be the overridden name
 
 If overwrite is set to true, it will also mark any records as read-only (to prevent saving this context-specific value back to the database). So this will give you an error:
 
-    @example = ModelName.for_context("facebook", :overwrite => true).first
+    @example = ModelName.for_context("facebook", :overwrite => true){|model| model.first}
     @example.save #  ActiveRecord::ReadOnlyRecord exception
 
 You can also pass a custom prefix which will be used in place of "overridden". An underscore will be appended to this, and then the property name
 
-    @example = ModelName.for_context("facebook", :overwrite => true, :attribute_prefix = "custom").first
+    @example = ModelName.for_context("facebook", :overwrite => true, :attribute_prefix = "custom"){|model| model.first}
     @example.name # Will be the overridden name
     @example.custom_name # Will be the overridden name
 

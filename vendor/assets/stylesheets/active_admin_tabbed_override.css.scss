@@ -1,0 +1,80 @@
+.active_admin .editor-tabs
+  {
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.active_admin .editor-tabs li:first-child
+{
+  border-radius: 5px 0 0 5px;
+  border-left:  none;
+}
+
+.active_admin .editor-tabs li {
+  border: 1px solid #dddddd;
+  border-right:  none;
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+  padding: 5px 10px;
+  height: 22px;
+  text-align: center;
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e7e7e7));
+  background: -moz-linear-gradient(-90deg, white, #e7e7e7);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e7e7e7');
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e7e7e7');
+  text-shadow: white 0 1px 0;
+  color: #5e6469;
+  line-height: 25px;
+}
+
+.active_admin .editor-tabs li.error {
+  color: #932419;
+}
+
+.active_admin .editor-tabs li.active {
+  font-weight: bold;
+  background: white;
+}
+
+.active_admin .editor-tabs li input[type=text] {
+  padding: 4px;
+  text-align: center;
+}
+
+.active_admin .editors > li {
+  display: none;
+}
+
+.active_admin .editors > li.active {
+  display: block;
+}
+
+.active_admin .editors > li.active p.inline-errors
+  {
+  margin: 0;
+}
+
+.active_admin .editors > li .inputs {
+  clear: left;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.active_admin .editors > li .inputs ol {
+  width: 100%;
+  padding: 0;
+}
+
+.active_admin .editor-tabs .button {
+  border-radius: 0 5px 5px 0 !important;
+  padding-top: 8px;
+  height: 19px;
+  margin-right: 0 !important;
+  line-height: 17px !important;
+  font-size: 16px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
